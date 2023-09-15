@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luyện tập cấu trúc điều kiện 02</title>
+  <style>
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          font-family: Merriweather, sans-serif;
+      }
+
+      body {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          margin: 50px;
+      }
+
+      h2 {
+          font-size: 16px;
+          line-height: 1.5;
+          margin: 10px;
+      }
+
+      input {
+          width: 270px;
+      }
+
+      input, button, option {
+          font-size: 16px;
+          padding: 5px;
+      }
+
+      p {
+          font-weight: bold;
+          margin: 10px;
+          color: darkred;
+      }
+  </style>
+</head>
+<body>
+<div>
+  <h2>Bài 1: Chuyển từ độ C sang độ F.</h2>
+  <input type="number" id="C" placeholder="Nhập độ C">
+  <button onclick="check1()">Calculate</button>
+  <p id="result1"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 2: Chuyển từ mét sang feet:</h2>
+  <input type="number" id="meter" placeholder="Nhập số mét">
+  <button onclick="check2()">Calculate</button>
+  <p id="result2"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h2>
+  <input type="number" id="squareA" placeholder="Nhập độ dài cạnh hình vuông">
+  <button onclick="check3()">Calculate</button>
+  <p id="result3"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.</h2>
+  <input type="number" id="rectangleA" placeholder="Nhập chiều dài">
+  <input type="number" id="rectangleB" placeholder="Nhập chiều rộng">
+  <button onclick="check4()">Calculate</button>
+  <p id="result4"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h2>
+  <input type="number" id="triangleA" placeholder="Nhập cạnh kề a">
+  <input type="number" id="triangleB" placeholder="Nhập cạnh kề b">
+  <button onclick="check5()">Calculate</button>
+  <p id="result5"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 6: Giải phương trình bậc 1.</h2>
+  <input type="number" id="a1" placeholder="Nhập a">
+  <input type="number" id="b1" placeholder="Nhập b">
+  <button onclick="check6()">Calculate</button>
+  <p id="result6"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 7: Giải phương trình bậc 2.</h2>
+  <input type="number" id="a2" placeholder="Nhập a">
+  <input type="number" id="b2" placeholder="Nhập b">
+  <input type="number" id="c2" placeholder="Nhập c">
+  <button onclick="check7()">Calculate</button>
+  <p id="result7"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi
+    nhỏ 120 và lơn hơn 0.</h2>
+  <input type="number" id="age" placeholder="Nhập số tuổi">
+  <button onclick="check8()">Check</button>
+  <p id="result8"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của
+    một tam giác là:<br>
+    a,b,c > 0 <br>
+    a + b > c <br>
+    b + c > a <br>
+    a + c > b</h2>
+  <input type="number" id="isTriangleA" placeholder="Nhập cạnh a">
+  <input type="number" id="isTriangleB" placeholder="Nhập cạnh b">
+  <input type="number" id="isTriangleC" placeholder="Nhập cạnh c">
+  <button onclick="check9()">Check</button>
+  <p id="result9"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 10: Viết chương trình tính giá điện.</h2>
+  <input type="number" id="kWh" placeholder="Nhập số điện tiêu thụ (kWh)">
+  <button onclick="check10()">Calculate</button>
+  <p id="result10"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</h2>
+  <input type="number" id="salary" placeholder="Nhập lương (VND)">
+  <button onclick="check11()">Calculate</button>
+  <p id="result11"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi
+    xuất hàng tháng.</h2>
+  <input type="number" id="fund" placeholder="Nhập số vốn (VND)">
+  <input type="number" id="month" placeholder="Nhập số tháng cho vay">
+  <input type="number" id="rate" placeholder="Nhập lãi suất hàng tháng (%)">
+  <button onclick="check12()">Calculate</button>
+  <p id="result12"></p>
+</div>
+
+<script>
+    function check1() {
+        let C = document.getElementById('C').value;
+        let F = C * 9 / 5 - 32;
+        document.getElementById('result1').innerHTML = C + ' độ C bằng ' + F + ' độ F'
+    }
+
+    function check2() {
+        let meter = document.getElementById('meter').value;
+        let feet = meter * 3.28;
+        document.getElementById('result2').innerHTML = meter + ' mét bằng ' + feet + ' feet'
+    }
+
+    function check3() {
+        let squareA = document.getElementById('squareA').value;
+        let squareArea = squareA * squareA;
+        document.getElementById('result3').innerHTML = 'Diện tích hình vuông cạnh ' + squareA + ' bằng ' + squareArea;
+    }
+
+    function check4() {
+        let rectangleA = document.getElementById('rectangleA').value;
+        let rectangleB = document.getElementById('rectangleB').value;
+        let rectangleArea = rectangleA * rectangleB;
+        document.getElementById('result4').innerHTML = 'Diện tích hình chữ nhật là ' + rectangleArea;
+    }
+
+    function check5() {
+        let rectangleA = document.getElementById('rectangleA').value;
+        let rectangleB = document.getElementById('rectangleB').value;
+        let rectangleArea = rectangleA * rectangleB;
+        document.getElementById('result4').innerHTML = 'Diện tích hình chữ nhật là ' + rectangleArea;
+    }
+
+    function check6() {
+        let a = document.getElementById('a1').value;
+        let b = document.getElementById('b1').value;
+        let x;
+        if (a == 0) {
+            if (b == 0) {
+                x = 'vô số nghiệm';
+            } else {
+                x = 'vô nghiệm';
+            }
+        } else {
+            x = (0 - b) / a;
+        }
+        document.getElementById('result6').innerHTML = 'Kết quả phương trình là ' + x;
+    }
+
+    function check7() {
+        let a = document.getElementById('a2').value;
+        let b = document.getElementById('b2').value;
+        let c = document.getElementById('c2').value;
+        let delta = b * b - 4 * a * c;
+        let x;
+        if (delta == 0) {
+            x ='có nghiệm là ' + (-b / (2 * a));
+        } else if (delta > 0) {
+            x ='có hai nghiệm là ' + ((-b - Math.sqrt(delta)) / (2 * a)) + ' và ' + ((-b + Math.sqrt(delta)) / (2 * a));
+        } else {
+            x=' vô nghiệm';
+        }
+        document.getElementById('result7').innerHTML='Phương trình ' + x;
+            }
+    function check8() {
+        let age=document.getElementById('age').value;
+        let result8=document.getElementById('result8')
+        if (120>age>0) {
+            result8.innerHTML=age + ' là tuổi của một người';
+        } else {
+            result8.innerHTML=age + ' không phải tuổi của một người';
+        }
+    }
+    function check9() {
+        let a=document.getElementById('isTriangleA').value;
+        let b=document.getElementById('isTriangleB').value;
+        let c=document.getElementById('isTriangleC').value;
+        let result8=document.getElementById('result8');
+        if (a>0 && b>0 && c>0 && (a+b)>c && (b+c)>a && (a+c)>b) {
+            result8.innerHTML='3 số vừa nhập là cạnh của một tam giác';
+        } else {
+            result8.innerHTML='3 số vừa nhập không phải là cạnh của một tam giác';
+        }
+    }
+    function check10() {
+        let kwh=document.getElementById('kWh').value;
+        let result10=document.getElementById('result10');
+        let price;
+        let price1=1.678*50;
+        let price2=price1+1.734*50;
+        let price3=price2+2.014*100;
+        let price4=price3+2.536*100;
+        let price5=price4+2.834*100;
+        if (kwh>401) {
+            price=price5+2.927*kwh;
+        } else if (kwh>301) {
+            price=price4+2.834*kwh;
+        } else if (kwh>201) {
+            price = price3 + 2.536 * kwh;
+        } else if (kwh>101) {
+            price=price2+2.014*kwh;
+        } else if (kwh>51) {
+            price=price1+1.734*kwh;
+        } else {
+            price=1.678*kwh;
+        }
+        result10.innerHTML='Giá tiền điện là ' + price + 'VND'
+    }
+    function check11() {
+        let salary=document.getElementById('salary').value;
+        let result11=document.getElementById('result11');
+        let tax;
+        if (salary<11000000) {
+            tax='Không có thuế TNCN'
+        } else {
+            tax='Thuế TNCN là ' + salary*10/100;
+        }
+        result11.innerHTML=tax;
+    }
+    function check12() {
+        let fund=document.getElementById('fund').value;
+        let month=document.getElementById('month').value;
+        let rate=document.getElementById('rate').value;
+        let sumRate=(fund*(1+rate/100)^month)-fund;
+        document.getElementById('result12').innerHTML='Tiền lãi là ' + sumRate + 'VND';
+    }
+</script>
+</body>
+</html>

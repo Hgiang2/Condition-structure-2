@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Máy tính đơn giản</title>
+  <style>
+      * {
+          box-sizing: border-box;
+          margin:0;
+          font-size:18px
+      }
+
+      table {
+          margin: 150px auto;
+      }
+
+      input {
+          width:100%;
+      }
+      button {
+          width:60px;
+          padding: 3px 5px
+      }
+  </style>
+</head>
+<body>
+<table>
+  <tr>
+    <th colspan="4"><input type="text" name="screen" id="screen"></th>
+  </tr>
+
+  <tr>
+    <td><button value="1" onclick="add(this.value)">1</button></td>
+    <td><button value="2" onclick="add(this.value)">2</button></td>
+    <td><button value="3" onclick="add(this.value)">3</button></td>
+    <td><button value="+" onclick="add(this.value)">+</button></td>
+  </tr>
+
+  <tr>
+    <td><button value="4" onclick="add(this.value)">4</button></td>
+    <td><button value="5" onclick="add(this.value)">5</button></td>
+    <td><button value="6" onclick="add(this.value)">6</button></td>
+    <td><button value="-" onclick="add(this.value)">-</button></td>
+  </tr>
+
+  <tr>
+    <td><button value="7" onclick="add(this.value)">7</button></td>
+    <td><button value="8" onclick="add(this.value)">8</button></td>
+    <td><button value="9" onclick="add(this.value)">9</button></td>
+    <td><button value="*" onclick="add(this.value)">x</button></td>
+  </tr>
+
+  <tr>
+    <td><button onclick="del()">AC</button></td>
+    <td><button value="0" onclick="add(this.value)">0</button></td>
+    <td><button onclick="calculateThis()">=</button></td>
+    <td><button value="/" onclick="add(this.value)">/</button></td>
+  </tr>
+</table>
+
+
+<script>
+    let screen = document.getElementById("screen");
+    function add(value) {
+        screen.value += value;
+    }
+
+    function calculateThis() {
+        screen.value = eval(screen.value);
+    }
+
+    function del() {
+        screen.value = "";
+    }
+</script>
+</body>
+</html>

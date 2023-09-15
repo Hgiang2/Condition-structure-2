@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ứng dụng vui DoYouLoveMe</title>
+  <style>
+    * {
+        font-family: "Nexa Bold", sans-serif;
+    }
+    h1 {
+        color: #d94b40;
+        margin-top: 200px;
+        text-align: center;
+    }
+
+    button {
+        font-size:21px;
+        width:80px;
+        height:36px;
+        padding:3px;
+    }
+
+    div {
+        display: flex;
+        gap:15px;
+        justify-content: center;
+    }
+
+    #no {
+        position:absolute;
+        top:260px;
+        right:40%;
+    }
+
+    #yes {
+        position:absolute;
+        top:260px;
+        left:40%;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Do You Love Me?</h1>
+  <span id="yesAnswer"></span>
+  <div>
+    <button id="yes" onclick="yesClick()">Yes</button>
+    <button id="no" onmouseover="noHover()">No</button>
+  </div>
+  <script>
+    // let yes = document.getElementById('yes').value;
+    // let no = document.getElementById('no').value;
+
+    function yesClick () {
+        document.getElementById('yes').innerHTML="<3";
+    }
+
+    function noHover() {
+        document.getElementById('no').style.top=Math.floor(Math.random() * (window.innerHeight-document.getElementById('no').style.height)) + 'px';
+        document.getElementById('no').style.left=Math.floor(Math.random() * (window.innerWidth-document.getElementById('no').style.width)) + 'px';
+    }
+  </script>
+</body>
+</html>

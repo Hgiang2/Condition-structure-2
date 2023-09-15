@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luyện tập cấu trúc điều kiện 01</title>
+  <style>
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          font-family: Merriweather, sans-serif;
+      }
+
+      body {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          margin: 50px;
+      }
+
+      h2 {
+          font-size: 16px;
+          line-height: 1.5;
+          margin: 10px;
+      }
+
+      input {
+          width: 270px;
+      }
+
+      input, button, option {
+          font-size: 16px;
+          padding: 5px;
+      }
+
+      p {
+          font-weight: bold;
+          margin: 10px;
+          color: darkred;
+      }
+
+  </style>
+</head>
+<body>
+<div>
+  <h2>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h2>
+  <input type="number" id="a" placeholder="Nhập số a">
+  <input type="number" id="b" placeholder="Nhập số b">
+  <button onclick="check1()">Check</button>
+  <p id="result1"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h2>
+  <input type="number" id="age" placeholder="Nhập số tuổi">
+  <button onclick="check2()">Check</button>
+  <p id="result2"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn
+    0</h2>
+  <input type="number" id="randomNum" placeholder="Nhập một số nguyên bất kì">
+  <button onclick="check3()">Check</button>
+  <p id="result3"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h2>
+  <input type="number" id="num1" placeholder="Nhập số thứ nhất">
+  <input type="number" id="num2" placeholder="Nhập số thứ hai">
+  <input type="number" id="num3" placeholder="Nhập số thứ ba">
+  <button onclick="check4()">Check</button>
+  <p id="result4"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</h2>
+  <input type="number" id="kiemtra" placeholder="Nhập điểm bài kiểm tra">
+  <input type="number" id="thiGiuaky" placeholder="Nhập điểm thi giữa kỳ">
+  <input type="number" id="thiCuoiKy" placeholder="Nhập điểm thi cuối kỳ">
+  <button onclick="check5()">Check</button>
+  <p id="result5"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</h2>
+  <input type="number" id="sum" placeholder="Nhập doanh số bán hàng (VND)">
+  <button onclick="check6()">Check</button>
+  <p id="result6"></p>
+</div>
+
+<hr>
+
+<div>
+  <h2>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</h2>
+  <input type="number" id="time" placeholder="Nhập thời gian sử dụng (phút)">
+  <select name="type" id="type">
+    <option value="phone">Gọi thoại</option>
+    <option value="sms">SMS</option>
+  </select>
+  <button onclick="check7()">Check</button>
+  <p id="result7"></p>
+</div>
+
+<script>
+    function check1() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let result1 = document.getElementById('result1');
+        if (a % b == 0) {
+            result1.innerHTML = a + ' chia hết cho ' + b;
+        } else {
+            result1.innerHTML = a + ' không chia hết cho ' + b;
+        }
+    }
+
+    function check2() {
+        let age = document.getElementById('age').value;
+        let result2 = document.getElementById('result2');
+        if (age >= 16) {
+            result2.innerHTML = "Đủ điều kiện vào lớp 10";
+        } else {
+            result2.innerHTML = "Không đủ điều kiện vào lớp 10";
+        }
+    }
+
+    function check3() {
+        let randomNum = document.getElementById('randomNum').value;
+        let result3 = document.getElementById('result3');
+        if (randomNum > 0) {
+            result3.innerHTML = randomNum + ' lớn hơn 0'
+        } else if (randomNum == 0) {
+            result3.innerHTML = randomNum + ' bằng 0'
+        } else {
+            result3.innerHTML = randomNum + ' nhỏ hơn 0'
+        }
+    }
+
+    function check4() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let num3 = document.getElementById('num3').value;
+        let result4 = document.getElementById('result4');
+        if (num1 > num2) {
+            if (num1 > num3) {
+                result4.innerHTML = num1 + ' là giá trị lớn nhất';
+            } else {
+                result4.innerHTML = num3 + ' là giá trị lớn nhất';
+            }
+        } else {
+            if (num2 > num3) {
+                result4.innerHTML = num2 + ' là giá trị lớn nhất';
+            } else {
+                result4.innerHTML = num3 + ' là giá trị lớn nhất';
+            }
+        }
+    }
+
+    function check5() {
+        let kt = document.getElementById('kiemtra').value;
+        let tgk = document.getElementById('thiGiuaky').value;
+        let tck = document.getElementById('thiCuoiKy').value;
+        let avg = (kt + tgk * 2 + tck * 3) / 6;
+        let result5 = document.getElementById('result5');
+        if (avg > 8) {
+            result5.innerHTML = 'Học lực Giỏi';
+        } else if (avg > 6.5) {
+            result5.innerHTML = 'Học lực Khá';
+        } else if (avg > 5) {
+            result5.innerHTML = 'Học lực Trung bình';
+        } else {
+            result5.innerHTML = 'Học lực Yếu';
+        }
+    }
+
+    function check6() {
+        let sum = document.getElementById('sum').value;
+        let result6 = document.getElementById('result');
+        let tip = 1;
+        if (sum > 1000000000) {
+            tip = 1000000000 * 1 / 100;
+        } else if (sum > 100000000) {
+            tip = 1000000000 * 0.7 / 100;
+        } else {
+            tip = 1000000000 * 0.5 / 100;
+        }
+        result6.innerHTML = 'Tiền hoa hồng: ' + tip + 'VND';
+    }
+
+    function check7() {
+        let time = document.getElementById('time').value;
+        let type=document.getElementById('type').value;
+        let result7=document.getElementById('result7');
+        let phoneCost = 1090 * time;
+        let smsCost=350*time;
+        if (type=='phone') {
+            result7.innerHTML='Tổng cước phí: ' + phoneCost + 'VND'
+        } else {
+            result7.innerHTML='Tổng cước phí: ' + smsCost + 'VND'
+        }
+    }
+</script>
+</body>
+</html>
